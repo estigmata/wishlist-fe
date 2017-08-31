@@ -1,0 +1,30 @@
+<header>
+  <nav class="navbar navbar-expand-md navbar-dark bg-dark justify-content-between">
+    <div class="container">
+      <a class="navbar-brand" href="#">Wishlist</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTop" aria-controls="navbarTop" (click)="isCollapsed = !isCollapsed" [attr.aria-expanded]="!isCollapsed">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="navbarTop" [ngbCollapse]="!isCollapsed">
+        <ul class="custom-navbar navbar-nav ml-auto">
+          <li class="nav=item">
+            <div ngbDropdown class="custom-dropdown">
+              <a class="nav-link" id="languageSelector" ngbDropdownToggle>
+                <i class="fa fa-globe"></i>
+              </a>
+              <div ngbDropdownMenu aria-labelledby="languageSelector">
+                <a class="dropdown-item" (click)="switchLanguage('en')">
+                  <span class="flag-icon flag-icon-gb"></span>
+                </a>
+                <a class="dropdown-item" (click)="switchLanguage('es')">
+                  <span class="flag-icon flag-icon-es"></span>
+                </a>
+              </div>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+</header>

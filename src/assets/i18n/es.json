@@ -1,0 +1,75 @@
+{
+  "EDIT_LIST": {
+    "TITLE": "Editar lista",
+    "SAVE": "Acutalizar datos"
+  },
+  "ITEMS_VIEW":{
+    "ITEM_NAME": "Nombre:",
+    "LIST_NAME": "Nombre de la lista",
+    "OWNER": "Propietario",
+    "CREATE_ITEM": "Anadir item",
+    "REMOVE_ITEM": "Remover item",
+    "DESCRIPTION": "Descripcion"
+  },
+  "CREATE_LIST":{
+    "NAME":"Nombre",
+    "OWNER": "Propietario",
+    "IMAGE": "Imagen",
+    "DESCRIPTION": "Descripcion",
+    "CANCEL": "Cancelar",
+    "SAVE": "Guardar",
+    "TITLE": "Crear lista",
+    "LIST_NAME": "Nombre de la lista",
+    "NAME_REQUIRED": "El nombre es requerido",
+    "OWNER_REQUIRED": "El propietario es requerido",
+    "REQUIRED": "Requerido",
+    "SIZE": "Maximo tamaño permitido 4MB"
+  }, 
+  "USER_LIST":{
+    "NAME": "Nombre",
+    "DESCRIPTION": "Descripcion",
+    "LIST": "Lista"
+  },
+  "NAVBAR": {
+    "SIGN_IN": "Ingresar",
+    "SIGN_UP": "Registrarse"
+  },
+  "LISTS": {
+    "YOURS": "Tus Listas",
+    "CREATE": "Crear una Lista",
+    "EDIT": "Editar Lista",
+    "TITLE": "Lista",
+    "FIND_ITEM": "Buscar items en tus listas"
+  },
+  "HOME": {
+    "MY_WISH": "Mi lista de Deseos",
+    "USERNAME": "Nombre de usuario",
+    "PASSWORD": "Contraseña",
+    "USERNAME_PLACEHOLDER": "Ingrese un nobre de usuario",
+    "PASSWORD_PLACEHOLDER": "Crear una contraseña",
+    "PASS": {
+      "NOTE": "Use al menos una letra, un número y siete caracteres."
+    },
+    "REGISTER": "Registrarme en Wishlist"
+  },
+  "LIST-VIEW": {
+    "DELETE": "Borrar",
+    "LISTS": "Listas",
+    "DELETEMSG": "Desea borrar la lista",
+    "CANCEL": "No",
+    "ACCEPT": "Si"
+
+  },
+  "CREATE_ITEM": {
+    "NAME":"Nombre",
+    "PRICE": "Precio",
+    "IMAGE": "Imagen",
+    "QUANTITY": "Cantidad",
+    "CANCEL": "Cancelar",
+    "SAVE": "Guardar",
+    "TITLE":"Crear articulo",
+    "ITEM_NAME":"Nombre del articulo",
+    "ITEM_PRICE":"Precio del articulo",
+    "ITEM_QUANTITY":"Cantidad de articulos"
+  }
+}

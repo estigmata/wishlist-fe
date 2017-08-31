@@ -1,0 +1,46 @@
+<div class="card mb-3">
+  <div class="card-header text-white bg-primary">
+    <h5 class="text-white">
+      {{ 'CREATE_ITEM.TITLE' | translate }}       
+    </h5>
+  </div>
+  <div class="card-body">
+    <form #createListForm="ngForm">
+      <div class="row">
+        <div class="col-md-12 col-lg-12 col-xs-12 center-block">
+          <div class="form-group">
+            <label for="name">{{'CREATE_ITEM.NAME' | translate}}:</label>
+            <input type="text" 
+              class="form-control" 
+              id="name" 
+              name="name" 
+              placeholder="{{ 'CREATE_ITEM.ITEM_NAME' | translate }}" 
+              [(ngModel)]="item.name">
+          </div>
+          <div class="form-group">
+            <label for="price">{{'CREATE_ITEM.PRICE' | translate}}:</label>
+            <input type="number"
+              class="form-control"
+              id="price" 
+              name="price" 
+              placeholder="{{'CREATE_ITEM.ITEM_PRICE' | translate}}" 
+              [(ngModel)]="item.price">
+          </div>
+          <div class="form-group">
+            <label for="quantity">{{'CREATE_ITEM.QUANTITY' | translate}}:</label>
+            <input type="number" 
+              class="form-control" 
+              id="quantity" 
+              name="quantity"
+              placeholder="{{'CREATE_ITEM.ITEM_QUANTITY' | translate}}"
+              [(ngModel)]="item.quantity">
+          </div>
+        </div>
+      </div>          
+    </form>
+  </div>
+  <div class="card-footer">
+    <a class="btn btn-danger" (click)="closeEvent($event)">{{ 'CREATE_ITEM.CANCEL' | translate}}</a>
+    <button type="button" class="btn btn-primary" (click)="save()">{{ 'CREATE_ITEM.SAVE' | translate }}</button>
+  </div>
+</div>

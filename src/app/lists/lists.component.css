@@ -1,0 +1,34 @@
+.lists.container {
+    padding-bottom: 20px;
+    padding-top: 20px;
+    position: relative;
+}
+
+.lists-navbar {
+    background-color: #fff;
+    position: absolute;
+    right: 0;
+    top: 17px;
+    z-index: 100;
+}
+
+.custom-navbar .navbar-toggler {
+    font-size: 12px !important;
+}
+
+.custom-navbar .nav-link {
+    color: #4285f4;
+    font-size: 12px !important;
+    padding-bottom: 0px;
+}
+
+.custom-navbar .nav-link:hover {
+    color: #337ab7;
+}
+
+.lists.container>.row {
+    border: 1px solid #ddd;
+    border-top: none;
+    margin: 0 !important;
+    padding: 20px 10px 10px 10px;
+}

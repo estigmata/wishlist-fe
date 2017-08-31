@@ -1,0 +1,51 @@
+<div class="jumbotron container">
+  <div class="row">
+    <div class="col-md-7">
+      <div class="row">
+        <div class="col-md-5">
+          <img class="rounded-circle" src="http://lorempixel.com/250/250/nature" />
+        </div>
+        <div class="custom-jumbotron col-lg-7">
+          <h1 class="display-3">
+            {{ 'HOME.MY_WISH' | translate }}!!
+          </h1>
+          <hr class="my-4">
+        </div>
+      </div>
+    </div>
+    <div class="col-md-5">
+      <div class="card">
+        <div class="container custom-card">
+          <form>
+            <dl class="form-group">
+              <dd>
+                <label class="form-label" for="username">{{ 'HOME.USERNAME' | translate }}</label>
+              </dd>
+              <dd>
+                <input type="text" name="username" id="username" class="form-control form-control-sm input-block" placeholder="{{ 'HOME.USERNAME_PLACEHOLDER' | translate }}" autofocus="">
+              </dd>
+            </dl>
+            <dl class="form-group">
+              <dd>
+                <label class="form-label" for="email">Email</label>
+              </dd>
+              <dd>
+                <input type="text" name="email" id="email" class="form-control form-control-sm input-block js-email-notice-trigger" placeholder="you@example.com" >
+              </dd>
+            </dl>
+            <dl class="form-group">
+              <dd>
+                <label class="form-label f5" for="password">{{ 'HOME.PASSWORD' | translate }}</label>
+              </dd>
+              <dd>
+                <input type="password" name="password" id="password" class="form-control form-control-sm input-block" placeholder="{{ 'HOME.PASSWORD_PLACEHOLDER' | translate }}">
+              </dd>
+                <p class="form-control-note">{{ 'HOME.PASS.NOTE' | translate }}</p>
+            </dl>
+            <button class="btn btn-success btn-lg btn-block" type="submit" data-ga-click="Signup, Attempt, location:teams; group:codelines_illustration">{{ 'HOME.REGISTER' | translate }}</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

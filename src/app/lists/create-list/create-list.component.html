@@ -1,0 +1,69 @@
+<div class="card mb-3">
+  <div class="card-header text-white bg-primary">
+    <h5 class="text-white">
+      {{ 'CREATE_LIST.TITLE' | translate }}       
+    </h5>
+  </div>
+  <div class="card-body">
+    <form #createListForm="ngForm">
+      <div class="row">
+        <div class="col-md-4 col-lg-6 col-xs-12">
+          <img src="../../../assets/images/default_image.jpg" #imagePreview>
+        </div>
+        <div class="col-md-8 col-lg-6 col-xs-12">
+          <div class="form-group">
+            <label for="name">{{'CREATE_LIST.NAME' | translate}}:</label>
+            <input type="text" 
+              class="form-control" 
+              id="name" 
+              name="name" 
+              required 
+              #name="ngModel"
+              placeholder="{{ 'CREATE_LIST.LIST_NAME' | translate }}" 
+              [(ngModel)]="list.name">
+          </div>
+          <div *ngIf="name.invalid && (name.dirty || name.touched)" class="alert alert-danger" role="alert">
+            <strong>{{ 'CREATE_LIST.REQUIRED' | translate }}</strong> {{ 'CREATE_LIST.NAME_REQUIRED' | translate }}
+          </div>
+          <div class="form-group">
+            <label for="name">{{'CREATE_LIST.OWNER' | translate }}:</label>
+            <input type="text"
+              class="form-control"
+              id="owner" 
+              name="owner" 
+              required 
+              #owner="ngModel"
+              placeholder="{{'CREATE_LIST.OWNER' | translate}}"
+              
+              [(ngModel)]="list.owner">
+          </div>
+          <div *ngIf="owner.invalid && (owner.dirty || owner.touched)" class="alert alert-danger" role="alert">
+            <strong>{{ 'CREATE_LIST.REQUIRED' | translate }}</strong> {{ 'CREATE_LIST.OWNER_REQUIRED' | translate }}
+          </div>
+          <div class="form-group">
+            <label for="image">{{'CREATE_LIST.IMAGE' | translate}}:</label>
+            <input type="file" 
+              class="form-control" 
+              id="imageFile" 
+              name="imageFile" 
+              (change)="loadImage($event, imagePreview)">
+          </div>
+          <div *ngIf="!imageValid" class="alert alert-danger" role="alert">
+            <strong>{{ 'CREATE_LIST.SIZE' | translate }}</strong>
+          </div>
+          <div class="form-group">
+            <label for="description">{{'CREATE_LIST.DESCRIPTION' | translate}}:</label>
+            <textarea name="description" 
+              class="form-control" 
+              id="description" 
+              [(ngModel)]="list.description"></textarea>
+          </div>
+        </div>
+      </div>          
+    </form>
+  </div>
+  <div class="card-footer">
+    <a [routerLink]="['/lists']" class="btn btn-danger">{{ 'CREATE_LIST.CANCEL' | translate}}</a>
+    <button type="button" class="btn btn-primary" (click)="save()" [disabled]="!createListForm.form.valid">{{ 'CREATE_LIST.SAVE' | translate }}</button>
+  </div>
+</div>

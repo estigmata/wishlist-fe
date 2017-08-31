@@ -1,0 +1,76 @@
+{
+  "EDIT_LIST": {
+    "TITLE": "Edit list",
+    "SAVE": "Update"
+  },
+  "ITEMS_VIEW":{
+    "ITEM_NAME":"Name:",
+    "LIST_NAME": "Name of list",
+    "OWNER": "Owner",
+    "CREATE_ITEM": "Add new item",
+    "REMOVE_ITEM": "Remove items",
+    "DESCRIPTION": "Description"
+
+  },
+  "CREATE_LIST":{
+    "NAME":"Name",
+    "OWNER": "Owner",
+    "IMAGE": "Image",
+    "DESCRIPTION": "Description",
+    "CANCEL": "Cancel",
+    "SAVE": "Save",
+    "TITLE": "Create list",
+    "LIST_NAME": "List name",
+    "NAME_REQUIRED": "Name is Required",
+    "OWNER_REQUIRED": "Owner is Required",
+    "REQUIRED": "Required",
+    "SIZE": "Max size allowed 4MB"
+  },   
+  "USER_LIST":{
+    "NAME": "Name",
+    "DESCRIPTION": "Description",
+    "LIST": "List"
+   },
+  "NAVBAR": {
+    "SIGN_IN": "Sign in",
+    "SIGN_UP": "Sign up"
+  },
+  "LISTS": {
+    "YOURS": "Your Lists",
+    "CREATE": "Create List",
+    "EDIT": "Edit List",
+    "TITLE": "List",
+    "FIND_ITEM": "Find items across your lists"
+  },
+  "HOME": {
+    "MY_WISH": "Wish List",
+    "USERNAME": "Username",
+    "PASSWORD": "Password",
+    "USERNAME_PLACEHOLDER": "Pick a username",
+    "PASSWORD_PLACEHOLDER": "Create a password",
+    "PASS": {
+      "NOTE": "Use at least one letter, one numeral, and seven characters."
+    },
+    "REGISTER": "Sign up for Wishlist"
+  },
+  "LIST-VIEW": {
+    "DELETE": "Delete",
+    "LISTS": "Lists",
+    "DELETEMSG": "Do you wish delete the list",
+    "CANCEL": "Cancel",
+    "ACCEPT": "Yes"
+
+  },
+  "CREATE_ITEM": {
+    "NAME":"Name",
+    "PRICE": "Price",
+    "IMAGE": "Image",
+    "QUANTITY": "Quantity",
+    "CANCEL": "Cancel",
+    "SAVE": "Save",
+    "TITLE":"Create item",
+    "ITEM_NAME":"Item name",
+    "ITEM_PRICE":"Item price",
+    "ITEM_QUANTITY":"Item quantity"
+  }
+}

@@ -1,0 +1,74 @@
+<div class="card mb-3">
+  <div class="card-header text-white bg-primary">
+    <h5 class="text-white">
+      {{ 'EDIT_LIST.TITLE' | translate }}       
+    </h5>
+  </div>
+  <div class="card-body">
+    <form #editListForm="ngForm">
+      <div class="row">
+        <div class="col-md-4 col-lg-6 col-xs-12">
+          <img class="img-fluid img-thumbnail" src="{{ dataList.image }}" #imagePreview>
+        </div>
+        <div class="col-md-8 col-lg-6 col-xs-12">
+          <div class="form-group">
+            <label for="name">
+              {{'CREATE_LIST.NAME' | translate}}:
+            </label>
+            <input type="text" 
+              class="form-control" 
+              id="name" 
+              name="name" 
+              required 
+              placeholder="{{ 'CREATE_LIST.LIST_NAME' | translate }}"
+              value="{{ dataList.name }}" 
+              [(ngModel)]="list.name"
+              #name="ngModel">
+          </div>
+          <div class="form-group">
+            <label for="name">
+              {{'CREATE_LIST.OWNER' | translate }}:
+            </label>
+            <input type="text"
+              class="form-control"
+              id="owner" 
+              name="owner" 
+              required 
+              placeholder="{{'CREATE_LIST.OWNER' | translate}}"
+              value="{{ dataList.owner }}"
+              [(ngModel)]="list.owner">
+          </div>
+          <div class="form-group">
+            <label for="image">
+              {{'CREATE_LIST.IMAGE' | translate}}:
+            </label>
+            <input type="file" 
+              class="form-control" 
+              id="imageFile" 
+              name="imageFile" 
+              (change)="loadImage($event, imagePreview)">
+          </div>
+          <div class="form-group">
+            <label for="description">
+              {{'CREATE_LIST.DESCRIPTION' | translate}}:
+            </label>
+            <textarea name="description" 
+              class="form-control" 
+              id="description"
+              [(ngModel)]="list.description">{{ dataList.description }}</textarea>
+          </div>
+        </div>
+      </div>          
+    </form>
+  </div>
+  <div class="card-footer">
+    <a routerLink="/lists/{{ dataList._id }}/items" class="btn btn-danger">
+      {{ 'CREATE_LIST.CANCEL' | translate}}
+    </a>
+    <button type="button" 
+      class="btn btn-primary" 
+      (click)="save(name)">
+      {{ 'EDIT_LIST.SAVE' | translate }}
+    </button>
+  </div>
+</div>

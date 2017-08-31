@@ -1,0 +1,8 @@
+div.main {
+  width: 760px;
+  float: right;
+}
+div.container {
+  display: flex;
+  flex-wrap: wrap;
+}

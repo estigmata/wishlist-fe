@@ -1,0 +1,7 @@
+.custom-fa {
+  font-size: 19px !important;
+}
+
+.custom-dropdown .dropdown-menu.show {
+  min-width: auto;
+}
