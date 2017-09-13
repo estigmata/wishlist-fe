@@ -10,24 +10,22 @@ import { List, ListWrapper, ListPostWrapper } from './list-view/list.model';
 export class ListService {
 
   constructor( private http: HttpClient ) {
-
   }
 
   getLists(): Observable<List[]> {
-    return this.http.get<ListWrapper>( `${environment.backendPath}lists/`).map(
+    return this.http.get<ListWrapper>(`${environment.backendPath}lists/`).map(
       (wrapper: ListWrapper) => {
         return wrapper.data;
       },
       (error) => {
-
+        console.error(error);
       }
     );
   }
 
-  getListItems(idlist: string): Observable<List[]> {
-    return this.http.get<ListWrapper>(`${environment.backendPath}lists/${idlist}/items`)
-      .map(
-      (list: ListWrapper) => {
+  getListItems(idlist: string): Observable<List> {
+    return this.http.get<List>(`${environment.backendPath}lists/${idlist}/items`).map(
+      (list: any) => {
         return list.data;
       }
     );
@@ -61,14 +59,22 @@ export class ListService {
     return this.http.delete <List>(`${environment.backendPath}lists/${listId}`);
   }
 
-  addItem(listId, item): Observable<ListWrapper> {
-    return this.http.post <ListWrapper> (
+  addItem(listId, item): Observable<List> {
+    return this.http.post <List> (
       `${environment.backendPath}lists/${listId}/items`,
       item,
       {headers: new HttpHeaders().set('Content-Type',
       'application/json')}).
-    map ((list: ListWrapper) => {
-      return list;
+    map ((list: any) => {
+      return list.data;
     });
+  }
+
+  getImageItems (itemId): Observable<string> {
+    return this.http.get(`${environment.backendPath}lists/image/${itemId}`).map(
+      (image: any) => {
+        return image.data.image;
+      }
+    );
   }
 }

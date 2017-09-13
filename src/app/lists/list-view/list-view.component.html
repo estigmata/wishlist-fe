@@ -8,12 +8,7 @@
         (click)="selectList(list)"
         [class.active]="list === selectedList">
         {{ list.name }}
-        <button id="thrash" 
-          type="button" 
-          class="btn btn-outline-danger btn-sm" 
-          (click)="open(content, list)">
-          <span class="fa fa-trash"></span>
-        </button>
+        <button id="thrash" type="button" class="btn btn-outline-danger btn-sm" (click)="open(content, list)"><span class="fa fa-trash"></span></button>
       </li>
     </ul>
   </div>
@@ -21,19 +16,14 @@
 
 <ng-template #content let-c="close" let-d="dismiss">
     <div class="modal-header">
-      <h4 class="modal-title">
-        {{ 'LIST-VIEW.DELETE' | translate }}
-        {{selectedListToDelete.name}}.
-      </h4>
-      <button type="button" 
-        class="close" 
-        aria-label="Close" 
-        (click)="closeModal()">
+      <h4 class="modal-title">{{ 'LIST-VIEW.DELETE' | translate }}
+      {{selectedListToDelete.name}}.</h4>
+      <button type="button" class="close" aria-label="Close" (click)="closeModal()">
         <span aria-hidden="true">&times;</span>
       </button>
     </div>
     <div class="modal-body">
-      <p>{{ 'LIST-VIEW.DELETEMSG' | translate }} {{ selectedListToDelete.name }}?</p>
+      <p>{{ 'LIST-VIEW.DELETEMSG' | translate }} {{selectedListToDelete.name}}?</p>
     </div>
     <div class="modal-footer">
       <button type="button" 
@@ -50,3 +40,4 @@
       </button>
     </div>
 </ng-template>
+

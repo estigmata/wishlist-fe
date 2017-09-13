@@ -9,7 +9,7 @@ import { List, ListWrapper } from './list-view/list.model';
 export class ListDataService {
 
   private listUpdatedSource = new Subject<List>();
-  private itemUpdatedSource = new Subject<ListWrapper>();
+  private itemUpdatedSource = new Subject<List>();
 
   listUpdated$ = this.listUpdatedSource.asObservable();
   itemUpdated$ = this.itemUpdatedSource.asObservable();
@@ -18,7 +18,7 @@ export class ListDataService {
     this.listUpdatedSource.next(list);
   }
 
-  addItemInList(item: ListWrapper) {
+  addItemInList(item: List) {
     this.itemUpdatedSource.next(item);
   }
 }

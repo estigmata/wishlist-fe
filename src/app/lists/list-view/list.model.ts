@@ -23,4 +23,5 @@ export interface Item {
     price: Number;
     quantity: Number;
     responsible: string;
+    image?: string;
 }

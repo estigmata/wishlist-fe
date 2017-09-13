@@ -11,9 +11,10 @@ import { ItemsViewComponent } from './items-view/items-view.component';
 import { ItemViewComponent } from './item-view/item-view.component';
 import { CreateListComponent } from './create-list/create-list.component';
 import { CreateItemComponent } from './create-item/create-item.component';
-import { EditListComponent } from './edit-list/edit-list.component';
 
 import {NgbModule, ModalDismissReasons} from '@ng-bootstrap/ng-bootstrap';
+import { EditListComponent } from './edit-list/edit-list.component';
+
 @NgModule({
   imports: [
     CommonModule,
@@ -28,9 +29,9 @@ import {NgbModule, ModalDismissReasons} from '@ng-bootstrap/ng-bootstrap';
     ItemsViewComponent,
     ItemViewComponent,
     CreateListComponent,
+    ListsComponent,
     CreateItemComponent,
-    EditListComponent,
-    ListsComponent
+    EditListComponent
   ],
   providers: [
     ListService,
@@ -41,9 +42,8 @@ import {NgbModule, ModalDismissReasons} from '@ng-bootstrap/ng-bootstrap';
     ItemsViewComponent,
     ItemViewComponent,
     CreateListComponent,
-    CreateItemComponent,
-    EditListComponent,
-    ListsComponent
+    ListsComponent,
+    CreateItemComponent
   ]
 
 })

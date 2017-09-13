@@ -12,6 +12,12 @@ div.container {
   margin-bottom: 10px;
 }
 
+.image-fake {
+  padding: 0;
+  border-radius: 5px;
+  display: block;
+}
+
 .image {
   border: 5px solid #FFFFFF;
   width:100%;

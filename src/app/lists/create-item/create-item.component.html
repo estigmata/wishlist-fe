@@ -7,33 +7,58 @@
   <div class="card-body">
     <form #createListForm="ngForm">
       <div class="row">
-        <div class="col-md-12 col-lg-12 col-xs-12 center-block">
+        <div class="col-md-6 col-lg-6 col-xs-6 center-block">
+            <img class="img-fluid img-thumbnail" src="../../../assets/images/default_image.jpg" #imagePreview>
+            <label for="image">{{'CREATE_ITEM.IMAGE' | translate}}:</label>
+            <input type="file" 
+              accept=".jpg, .jpeg, .png"
+              class="form-control" 
+              id="imageFile" 
+              name="imageFile" 
+              (change)="loadImage($event, imagePreview)">
+        </div>
+        <div class="col-md-6 col-lg-6 col-xs-6 center-block">
           <div class="form-group">
             <label for="name">{{'CREATE_ITEM.NAME' | translate}}:</label>
             <input type="text" 
               class="form-control" 
+              pattern=".{5,50}" 
               id="name" 
               name="name" 
+              required
+              #name = "ngModel"
               placeholder="{{ 'CREATE_ITEM.ITEM_NAME' | translate }}" 
               [(ngModel)]="item.name">
+          </div>
+          <div *ngIf="name.invalid && (name.dirty || name.touched)" class="alert alert-danger" role="alert">
+            <strong>{{ 'CREATE_LIST.REQUIRED' | translate }}</strong> {{ 'CREATE_LIST.NAME_REQUIRED' | translate }}
           </div>
           <div class="form-group">
             <label for="price">{{'CREATE_ITEM.PRICE' | translate}}:</label>
             <input type="number"
+              value=""
+              min = "0"
               class="form-control"
               id="price" 
               name="price" 
+              required 
               placeholder="{{'CREATE_ITEM.ITEM_PRICE' | translate}}" 
               [(ngModel)]="item.price">
           </div>
           <div class="form-group">
             <label for="quantity">{{'CREATE_ITEM.QUANTITY' | translate}}:</label>
             <input type="number" 
+              min = "1"
               class="form-control" 
               id="quantity" 
               name="quantity"
+              required
+              #quantity = "ngModel"
               placeholder="{{'CREATE_ITEM.ITEM_QUANTITY' | translate}}"
               [(ngModel)]="item.quantity">
+          </div>
+          <div *ngIf="quantity.invalid && (quantity.dirty || quantity.touched)" class="alert alert-danger" role="alert">
+            <strong>{{ 'CREATE_LIST.REQUIRED' | translate }}</strong> {{ 'CREATE_LIST.NAME_REQUIRED' | translate }}
           </div>
         </div>
       </div>          
@@ -41,6 +66,6 @@
   </div>
   <div class="card-footer">
     <a class="btn btn-danger" (click)="closeEvent($event)">{{ 'CREATE_ITEM.CANCEL' | translate}}</a>
-    <button type="button" class="btn btn-primary" (click)="save()">{{ 'CREATE_ITEM.SAVE' | translate }}</button>
+    <button type="button" class="btn btn-primary" (click)="save()" [disabled]="!createListForm.form.valid">{{ 'CREATE_ITEM.SAVE' | translate }}</button>
   </div>
 </div>

@@ -22,6 +22,7 @@ export class ItemsViewComponent implements OnInit, OnDestroy {
   public error;
   public idList = '';
   private listSubscription: Subscription;
+  private imageSubscription: Subscription;
   public viewAddItem = false;
 
   constructor(
@@ -41,15 +42,25 @@ export class ItemsViewComponent implements OnInit, OnDestroy {
     this.getItemsForList(this.idList);
     this.listDataService.itemUpdated$.subscribe(
       (newList) => {
-        this.items = newList.data;
+        this.items = newList;
       }
     );
   }
 
   getItemsForList(idList) {
-    this.listSubscription = this.listService.getListItems(idList)
-      .subscribe((listItems: List[]) => {
+    this.listSubscription = this.listService.getListItems(idList).subscribe((listItems: List) => {
       this.items = listItems;
+      this.items.item.forEach(element => {
+        if (element.image) {
+          this.listService.getImageItems(element.image).subscribe((imageItem: string) => {
+            element.image = imageItem;
+          },
+          error => {
+            this.error = error;
+          });
+        }
+      });
+
     },
     error => {
       this.error = error;

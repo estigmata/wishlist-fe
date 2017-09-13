@@ -19,8 +19,8 @@ import { EditListComponent } from './lists/edit-list/edit-list.component';
             component: ItemsViewComponent
           },
           {
-            path: ':id/edit',
-            component: EditListComponent
+            path: 'edit/:id',
+            component: CreateListComponent
           },
           {
             path: 'create',

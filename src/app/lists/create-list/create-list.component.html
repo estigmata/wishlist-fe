@@ -14,7 +14,8 @@
           <div class="form-group">
             <label for="name">{{'CREATE_LIST.NAME' | translate}}:</label>
             <input type="text" 
-              class="form-control" 
+              class="form-control"
+              pattern=".{5,50}"  
               id="name" 
               name="name" 
               required 
@@ -29,6 +30,7 @@
             <label for="name">{{'CREATE_LIST.OWNER' | translate }}:</label>
             <input type="text"
               class="form-control"
+              pattern=".{3,50}" 
               id="owner" 
               name="owner" 
               required 
@@ -43,6 +45,7 @@
           <div class="form-group">
             <label for="image">{{'CREATE_LIST.IMAGE' | translate}}:</label>
             <input type="file" 
+              accept=".jpg, .jpeg, .png"
               class="form-control" 
               id="imageFile" 
               name="imageFile" 
@@ -56,7 +59,8 @@
             <textarea name="description" 
               class="form-control" 
               id="description" 
-              [(ngModel)]="list.description"></textarea>
+              [(ngModel)]="list.description">
+            </textarea>
           </div>
         </div>
       </div>          

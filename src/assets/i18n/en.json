@@ -1,8 +1,4 @@
 {
-  "EDIT_LIST": {
-    "TITLE": "Edit list",
-    "SAVE": "Update"
-  },
   "ITEMS_VIEW":{
     "ITEM_NAME":"Name:",
     "LIST_NAME": "Name of list",

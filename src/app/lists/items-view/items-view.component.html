@@ -1,7 +1,7 @@
 <div class="row">
   <div class="col-md-4" >
-    <img class="img-fluid img-thumbnail"  src="{{items && items.image || '../../../assets/images/default_image.jpg'}}" />
-
+    <img class="img-fluid img-thumbnail"
+      src="{{items && items.image || '../../../assets/images/default_image.jpg'}}" />
   </div>
   <div class="col-md-8">
     <div class="row">
@@ -11,12 +11,11 @@
         </h4>
       </div>
       <div class="col-md-5">
-        <a class="btn btn-link btn-sm float-right" routerLink="/lists/{{items._id}}/edit">
+        <a class="nav-link" routerLink="/lists/edit/{{ items._id }}">
           {{ 'LISTS.EDIT' | translate }}
         </a>
-        <a class="btn btn-link btn-sm float-right" (click)="createItemClick()" href="#">
-          {{ 'ITEMS_VIEW.CREATE_ITEM' | translate }}
-        </a>
+        <button class="btn btn-success btn-sm float-right" (click)="createItemClick()">
+          {{ 'ITEMS_VIEW.CREATE_ITEM' | translate }}</button>
       </div>
       <div class="col-md-12">
         {{ 'ITEMS_VIEW.DESCRIPTION' | translate }}: {{ items && items.description || ''}}

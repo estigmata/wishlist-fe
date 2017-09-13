@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
 import { Subscription } from 'rxjs/Subscription';
 import { List } from '../list-view/list.model';
 import { ListService } from '../list.service';
@@ -17,13 +17,19 @@ export class CreateListComponent implements OnInit {
   list: List = { name: '', owner: '', description: ' ', image: ' ' };
   image;
   imageValid = true;
+  listId;
   constructor(
     private listService: ListService,
     private listDataService: ListDataService,
-    private router: Router) {
+    private router: Router,
+    private activeRoute: ActivatedRoute) {
   }
 
   ngOnInit() {
+    this.activeRoute.params.subscribe(params => {
+      this.listId = params['id'];
+      console.log(this.listId);
+    })
   }
 
   loadImage(fileImage, imagePreview) {
@@ -36,13 +42,13 @@ export class CreateListComponent implements OnInit {
         this.imageValid = false;
         this.list.image = ""
         imagePreview.src = "../../../assets/images/default_image.jpg";
-      }   
+      }
     }).catch(error => {
       console.error(error);
     });
   }
 
-  save() {   
+  save() {
     if(this.imageValid){
       this.list.image = this.image;
       this.listSubscription = this.listService.addList(this.list)
@@ -50,6 +56,6 @@ export class CreateListComponent implements OnInit {
           this.listDataService.addCreatedList(list);
           this.router.navigate(['/lists', list._id, 'items']);
         });
-    } 
+    }
   }
 }
