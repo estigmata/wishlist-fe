@@ -16,12 +16,14 @@
     "CANCEL": "Cancel",
     "SAVE": "Save",
     "TITLE": "Create list",
+    "TITLE_UPDATE": "Update list",
     "LIST_NAME": "List name",
     "NAME_REQUIRED": "Name is Required",
     "OWNER_REQUIRED": "Owner is Required",
     "REQUIRED": "Required",
-    "SIZE": "Max size allowed 4MB"
-  },   
+    "SIZE": "Max size allowed 4MB",
+    "UPDATE": "Update"
+  },
   "USER_LIST":{
     "NAME": "Name",
     "DESCRIPTION": "Description",

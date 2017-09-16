@@ -5,6 +5,7 @@ export interface List {
   description: string;
   image?: string;
   item?: Item[];
+  edit?: boolean;
 }
 
 export interface ListWrapper {

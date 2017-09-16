@@ -13,7 +13,6 @@ import { CreateListComponent } from './create-list/create-list.component';
 import { CreateItemComponent } from './create-item/create-item.component';
 
 import {NgbModule, ModalDismissReasons} from '@ng-bootstrap/ng-bootstrap';
-import { EditListComponent } from './edit-list/edit-list.component';
 
 @NgModule({
   imports: [
@@ -30,8 +29,7 @@ import { EditListComponent } from './edit-list/edit-list.component';
     ItemViewComponent,
     CreateListComponent,
     ListsComponent,
-    CreateItemComponent,
-    EditListComponent
+    CreateItemComponent
   ],
   providers: [
     ListService,

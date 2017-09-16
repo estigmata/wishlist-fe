@@ -14,10 +14,11 @@ import { ListDataService } from '../list-data.service';
 export class CreateListComponent implements OnInit {
 
   private listSubscription: Subscription;
-  list: List = { name: '', owner: '', description: ' ', image: ' ' };
+  list: List = { name: '', owner: '', description: ' ', image: '', edit: false };
   image;
   imageValid = true;
   listId;
+
   constructor(
     private listService: ListService,
     private listDataService: ListDataService,
@@ -28,8 +29,10 @@ export class CreateListComponent implements OnInit {
   ngOnInit() {
     this.activeRoute.params.subscribe(params => {
       this.listId = params['id'];
-      console.log(this.listId);
-    })
+    });
+    if (this.listId) {
+      this.getListToEdit(this.listId);
+    }
   }
 
   loadImage(fileImage, imagePreview) {
@@ -40,8 +43,8 @@ export class CreateListComponent implements OnInit {
         this.imageValid = true;
       }else{
         this.imageValid = false;
-        this.list.image = ""
-        imagePreview.src = "../../../assets/images/default_image.jpg";
+        this.list.image = "";
+        imagePreview.src = "./assets/images/default_image.jpg";
       }
     }).catch(error => {
       console.error(error);
@@ -57,5 +60,26 @@ export class CreateListComponent implements OnInit {
           this.router.navigate(['/lists', list._id, 'items']);
         });
     }
+  }
+
+  update() {
+    console.log('Update');
+    if(this.imageValid) {
+      this.list.image = this.image;
+      this.listSubscription = this.listService.updateList(this.list)
+        .subscribe((list) => {
+          this.router.navigate(['/lists', list.data.id, 'items']);
+        });
+    }
+  }
+
+  getListToEdit(listId) {
+    this.listSubscription = this.listService.getListItems(listId).subscribe((list: List) => {
+      this.list = list;
+      this.list.edit = true;
+      },
+      error => {
+        console.error(error);
+      });
   }
 }

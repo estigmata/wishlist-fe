@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Response } from '@angular/http';
-import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { HttpClient, HttpHeaders, HttpRequest } from '@angular/common/http';
 import { Observable } from 'rxjs/Observable';
 import { environment } from '../../environments/environment';
 import { List, ListWrapper, ListPostWrapper } from './list-view/list.model';
@@ -10,6 +10,19 @@ import { List, ListWrapper, ListPostWrapper } from './list-view/list.model';
 export class ListService {
 
   constructor( private http: HttpClient ) {
+  }
+
+  private extractData(res: Response) {
+    return res;
+    /*let body = res.json();
+    return body || {};*/
+  }
+
+  private handleError(error: any) {
+    let errMsg = (error.message) ? error.message :
+        error.status ? `${error.status} - ${error.statusText}` : 'Server error';
+    console.error(errMsg);
+    return Observable.throw(errMsg);
   }
 
   getLists(): Observable<List[]> {
@@ -32,7 +45,10 @@ export class ListService {
   }
 
   addList(list): Observable<List> {
-    return this.http.post(`${environment.backendPath}lists/`, list, { headers: new HttpHeaders().set('Content-Type', 'application/json') }).
+    return this.http.post(
+      `${environment.backendPath}lists/`,
+      list,
+      { headers: new HttpHeaders().set('Content-Type', 'application/json') }).
     map((newList: ListPostWrapper) => {
       const customList = newList.data;
       const dataList: List = {
@@ -77,4 +93,14 @@ export class ListService {
       }
     );
   }
+
+  updateList(list): Observable<any> {
+    let body = JSON.stringify(list);
+    return this.http
+        .put(
+          `${environment.backendPath}lists/${list._id}`,
+          body,
+          {headers: new HttpHeaders().set('Content-Type', 'application/json')})
+        .map(this.extractData);
+    }
 }

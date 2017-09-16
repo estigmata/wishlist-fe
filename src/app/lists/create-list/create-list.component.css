@@ -4,3 +4,26 @@ img {
   width: 100%;
   height: 200px;
 }
+
+.btn-create,
+.btn-update,
+.title-create,
+.title-update {
+  display: none;
+}
+
+div.create > .btn-create {
+  display: inline-block;
+}
+
+div.editing > .btn-update {
+  display: inline-block;
+}
+
+div.create > .title-create {
+  display: block;
+}
+
+div.editing > .title-update {
+  display: block;
+}

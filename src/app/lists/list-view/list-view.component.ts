@@ -37,7 +37,10 @@ export class ListViewComponent implements OnInit, OnDestroy {
       (error: Error) => this.lists = []
     );
     this.listDataService.listUpdated$.subscribe(
-      (newList: List) => this.lists.push(newList)
+      (newList: List) => {
+        this.lists.push(newList)
+        this.selectedList= newList;
+      }
     );
   }
 

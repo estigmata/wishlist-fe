@@ -5,7 +5,6 @@ import { HomepageComponent } from './homepage/homepage.component';
 import { ListsComponent } from './lists/lists.component';
 import { ItemsViewComponent } from './lists/items-view/items-view.component';
 import { CreateListComponent } from './lists/create-list/create-list.component';
-import { EditListComponent } from './lists/edit-list/edit-list.component';
 
 @NgModule({
   imports: [

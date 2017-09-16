@@ -60,7 +60,6 @@ export class ItemsViewComponent implements OnInit, OnDestroy {
           });
         }
       });
-
     },
     error => {
       this.error = error;
