@@ -36,12 +36,22 @@ export class ListViewComponent implements OnInit, OnDestroy {
       (nameLists: List[]) => this.lists = nameLists,
       (error: Error) => this.lists = []
     );
-    this.listDataService.listUpdated$.subscribe(
+    this.listDataService.listUpdatedByCreate$.subscribe(
       (newList: List) => {
         this.lists.push(newList)
         this.selectedList= newList;
       }
     );
+    this.listDataService.listUpdatedByEdit$.subscribe(
+      (updateList) => {
+        const newList = [];
+        this.lists.forEach(list => {
+          if (list._id === updateList.id)
+            list = updateList;
+          newList.push(list);
+        })
+        this.lists = newList;
+      });
   }
 
   ngOnDestroy() {

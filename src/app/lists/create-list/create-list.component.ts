@@ -68,6 +68,7 @@ export class CreateListComponent implements OnInit {
       this.list.image = this.image;
       this.listSubscription = this.listService.updateList(this.list)
         .subscribe((list) => {
+          this.listDataService.updateList(list.data);
           this.router.navigate(['/lists', list.data.id, 'items']);
         });
     }

@@ -14,8 +14,6 @@ export class ListService {
 
   private extractData(res: Response) {
     return res;
-    /*let body = res.json();
-    return body || {};*/
   }
 
   private handleError(error: any) {
